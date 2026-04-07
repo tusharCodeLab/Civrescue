@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/index.js" },
+    { "source": "/sms", "destination": "/api/index.js" },
+    { "source": "/voice", "destination": "/api/index.js" },
+    { "source": "/collect-1", "destination": "/api/index.js" },
+    { "source": "/collect-2", "destination": "/api/index.js" },
+    { "source": "/collect-3", "destination": "/api/index.js" },
+    { "source": "/collect-4", "destination": "/api/index.js" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

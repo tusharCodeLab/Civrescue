@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TODO: Set the document title to the name of your application -->
+    <title>CivRescue</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="description" content="AI-Powered Disaster Coordination Dashboard" />
+    <meta name="author" content="CivRescue" />
+
+    <!-- TODO: Update og:title to match your application name -->
+    <meta property="og:title" content="CivRescue" />
+    <meta property="og:description" content="AI-Powered Disaster Coordination Dashboard" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@CivRescue" />
+    <meta name="twitter:image" content="" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <div id="err-overlay" style="display:none;position:fixed;inset:0;z-index:99999;background:#0a0a0a;color:#f87171;font-family:monospace;padding:40px;overflow:auto"></div>
+    <script>
+      window.addEventListener('error', function(e) {
+        var el = document.getElementById('err-overlay');
+        el.style.display = 'block';
+        el.innerHTML = '<h1 style="font-size:24px;font-weight:900;color:#f87171">JS Runtime Error</h1>' +
+          '<pre style="color:#fbbf24;white-space:pre-wrap;margin-top:16px">' + (e.message || e) + '</pre>' +
+          '<pre style="color:#9ca3af;font-size:12px;white-space:pre-wrap;margin-top:8px">' + (e.filename || '') + ':' + (e.lineno || '') + ':' + (e.colno || '') + '</pre>' +
+          '<pre style="color:#9ca3af;font-size:11px;white-space:pre-wrap;margin-top:8px">' + (e.error && e.error.stack ? e.error.stack : '') + '</pre>';
+      });
+      window.addEventListener('unhandledrejection', function(e) {
+        var el = document.getElementById('err-overlay');
+        el.style.display = 'block';
+        el.innerHTML = '<h1 style="font-size:24px;font-weight:900;color:#f87171">Unhandled Promise Rejection</h1>' +
+          '<pre style="color:#fbbf24;white-space:pre-wrap;margin-top:16px">' + (e.reason && e.reason.message ? e.reason.message : String(e.reason)) + '</pre>' +
+          '<pre style="color:#9ca3af;font-size:11px;white-space:pre-wrap;margin-top:8px">' + (e.reason && e.reason.stack ? e.reason.stack : '') + '</pre>';
+      });
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
